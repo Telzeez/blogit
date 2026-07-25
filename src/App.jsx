@@ -9,6 +9,7 @@ import Filters from './components/Filters';
 import BlogCard from './components/BlogCard';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+import SignInModal from './components/SignInModal';
 
 // Initial Mock Data
 const initialPosts = [
@@ -38,7 +39,7 @@ const initialPosts = [
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [posts, setPosts] = useState(initialPosts);
-  const [message, setMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handlePostSubmit = (newPost) => {
     setPosts([newPost, ...posts]);
@@ -46,7 +47,8 @@ export default function App() {
   
   return (
     <>
-      <Navbar />
+      <SignInModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <Navbar onOpenModal={() => setIsModalOpen(true)} />
 
       <main className="container">
         <Hero />

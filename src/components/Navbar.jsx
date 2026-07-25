@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Navbar() {
+export default function Navbar({ onOpenModal }) {
   return (
     <nav className="container navbar">
       <a href="#" className="logo">
@@ -12,8 +12,8 @@ export default function Navbar() {
         <a href="#">Community</a>
       </div>
       <div className="nav-actions">
-        <button className="btn btn-outline">Sign In</button>
-        <button className="btn btn-dark">Get Started</button>
+        <button className="btn btn-outline" onClick={onOpenModal}>Sign In</button>
+        <button className="btn btn-dark" onClick={onOpenModal}>Get Started</button>
       </div>
     </nav>
   );
