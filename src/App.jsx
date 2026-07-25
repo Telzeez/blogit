@@ -38,6 +38,7 @@ const initialPosts = [
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [posts, setPosts] = useState(initialPosts);
+  const [message, setMessage] = useState("");
 
   const handlePostSubmit = (newPost) => {
     setPosts([newPost, ...posts]);
