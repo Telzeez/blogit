@@ -380,9 +380,45 @@ ul {
   font-size: 0.9rem;
 }
 
+/* Normal/Unliked state: gray or standard layout colors */
 .likes svg {
-  color: #ef4444;
+  color: #9ca3af;
+  /* Default slate/gray color */
+  transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
+
+/* Liked active state: changes color instantly when parent has class */
+.blog-card.liked-active .likes svg {
+  color: #ef4444;
+  /* Bright crimson red color */
+}
+
+/* Optional pop animation effect on click */
+.blog-card.liked-active .likes svg {
+  animation: heartPop 0.3s ease-in-out;
+}
+
+@keyframes heartPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.no-post{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
 
 /* Call to Action */
 .cta-section {
@@ -483,6 +519,64 @@ ul {
 .modal-actions .modal-submit {
   flex: 1;
   margin-top: 0;
+}
+
+/* Toast Notification Styles */
+.toast-message {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background-color: var(--text-dark);
+  color: white;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hover);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  animation: slideInUpLeft 0.3s ease forwards;
+  width: max-content;
+  max-width: 90vw;
+  text-align: left;
+}
+
+.likeBtn {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover state: slight background tint */
+.likeBtn:hover {
+  color: #1f2937;
+  box-shadow: #111827;
+  border-color: #9ca3af;
+}
+
+/* Active state: mimic a physical press */
+.likeBtn:active {
+  transform: scale(0.95);
+}
+
+.like-active {
+  background-color: var(--primary-yellow);
+}
+
+
+
+
+@keyframes slideInUpLeft {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Responsive */

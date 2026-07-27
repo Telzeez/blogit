@@ -4,8 +4,7 @@ export default function CreateBlogForm({ onPostSubmit }) {
   const [formData, setFormData] = useState({
     title: '',
     author: '',
-    url: '',
-    category: ''
+    url: ''
   });
 
   const handleInputChange = (e) => {
@@ -21,12 +20,11 @@ export default function CreateBlogForm({ onPostSubmit }) {
       title: formData.title,
       author: formData.author,
       url: formData.url,
-      category: formData.category || "General",
       likes: 0
     });
     
     // Reset form
-    setFormData({ title: '', author: '', url: '', category: '' });
+    setFormData({ title: '', author: '', url: '' });
   };
 
   return (
@@ -63,16 +61,6 @@ export default function CreateBlogForm({ onPostSubmit }) {
             required 
             placeholder="Your Name" 
             value={formData.author}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Category (Optional)</label>
-          <input 
-            type="text" 
-            name="category" 
-            placeholder="e.g. React, Python, CSS" 
-            value={formData.category}
             onChange={handleInputChange}
           />
         </div>

@@ -20,15 +20,6 @@ export default function Filters({ searchQuery, setSearchQuery }) {
           </button>
         </div>
       </div>
-      <div className="filter-group">
-        <h3>Popular Categories</h3>
-        <div className="category-tags">
-          <button className="tag active">React</button>
-          <button className="tag">TypeScript</button>
-          <button className="tag">CSS</button>
-          <button className="tag">Node.js</button>
-        </div>
-      </div>
     </section>
   );
 }
